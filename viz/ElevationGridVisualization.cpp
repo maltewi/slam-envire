@@ -38,7 +38,7 @@ ElevationGridVisualization::ElevationGridVisualization() : cycleHeightColor(true
     //Load the texture image
     osg::ref_ptr<osg::Image> image; 
     
-    envire::ElevationGrid::ArrayType &data = eg->getGridData(envire::ElevationGrid::ELEVATION);
+    envire::ElevationGrid::ArrayType &data = eg->getGridData(envire::ElevationGrid::ELEVATION_MAX);
 
     double min_z = std::numeric_limits<double>::max(), max_z = std::numeric_limits<double>::min();
     for (size_t yi = 0; yi < eg->getCellSizeY(); ++yi)
@@ -73,7 +73,7 @@ ElevationGridVisualization::ElevationGridVisualization() : cycleHeightColor(true
         double* pos2 = data.data();
 
         //scaling between SCALING_MIN_VALUE and SCALING_MAX_VALUE meters 
-        double scaling = std::abs(max_z - min_z);
+        double scaling = 1.0; //std::abs(max_z - min_z);
         if(scaling == 0)
             scaling = 1.0;
 
