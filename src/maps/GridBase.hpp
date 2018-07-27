@@ -228,6 +228,10 @@ namespace envire
          */
 	double getOffsetY() const { return offsety; };
 
+        /** Set the position of the (0, 0) cell w.r.t. the grid's frame
+         */
+	void setOffset(double x, double y) { offsetx = x; offsety = y; };
+
         /** Returns the position of the center of the grid, in world
          * coordinates, w.r.t. the position of the (0, 0) cell
          */
