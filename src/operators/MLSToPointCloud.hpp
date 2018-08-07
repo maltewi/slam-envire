@@ -21,9 +21,11 @@ namespace envire
 	private:
 		using Operator::addInput;
 		using Operator::addOutput;
+
+		unsigned mMinHitsPerPatch;
 		
 	public:
-		MLSToPointCloud();
+		MLSToPointCloud(unsigned min_hits = 0);
 		virtual ~MLSToPointCloud();
 		
 		void setInput(MLSGrid* mls_grid);

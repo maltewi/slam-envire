@@ -5,7 +5,7 @@ using namespace envire;
 
 ENVIRONMENT_ITEM_DEF( MLSToPointCloud )
 
-MLSToPointCloud::MLSToPointCloud(): Operator(1, 1)
+MLSToPointCloud::MLSToPointCloud(unsigned min_hits): Operator(1, 1), mMinHitsPerPatch(min_hits)
 {
 
 }
@@ -46,6 +46,7 @@ bool MLSToPointCloud::updateAll()
 	    for( MLSGrid::iterator cit = mls_grid->beginCell(x,y); cit != mls_grid->endCell(); cit++ )
 	    {
 		MLSGrid::SurfacePatch p( *cit );
+		if(p.n < mMinHitsPerPatch) continue;
 		Eigen::Vector3d cellPosWorld = mls_grid->fromGrid(x, y, mls_grid->getEnvironment()->getRootNode());
 		Eigen::Vector3d point(cellPosWorld);
 		
