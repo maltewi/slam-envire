@@ -13,7 +13,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 rock_activate_cxx11()
 
 option( USE_CGAL "Switch on CGAL related functionality" OFF )
-include(${PROJECT_SOURCE_DIR}/cmake/UseCGAL.cmake)
+#include(${PROJECT_SOURCE_DIR}/cmake/UseCGAL.cmake)
 if (USE_CGAL)
     if (NOT CGAL_FOUND)
         message (FATAL_ERROR "CGAL, BLAS and/or LAPACK could not be found, CGAL will not be used!")

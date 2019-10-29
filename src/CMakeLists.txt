@@ -144,5 +144,5 @@ if (USE_CGAL AND CGAL_FOUND)
     )
 else() 
     target_link_libraries(envire 
-	    ${Boost_LIBRARIES})
+            ${Boost_LIBRARIES})
 endif()
